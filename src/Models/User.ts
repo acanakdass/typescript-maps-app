@@ -1,5 +1,6 @@
 import { faker } from '@faker-js/faker'
-class User {
+import { Mappable } from '../Interfaces/Mappable';
+class User implements Mappable {
     constructor() {
         this.name = faker.name.fullName()
         this.id = faker.datatype.uuid()
@@ -13,6 +14,9 @@ class User {
     location: {
         latitude: number;
         longitude: number;
+    };
+    getMarkerContent():string{
+        return `User name : ${this.name}`
     }
 }
 export default User
